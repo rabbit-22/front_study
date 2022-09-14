@@ -4,40 +4,38 @@ import { Link, useNavigate } from 'react-router-dom';
 
 function SignupPage() {
   const navigate = useNavigate();
-  const [id, setId] = useState<String>('');
-  const [pwd, setPwd] = useState<String>('');
+  const [inputs, setInputs] = useState({id: '', pwd: ''})
   const [confirmPwd, setConfirmPwd] = useState<String>('');
   const [pwdMessage, setPwdMessage] = useState<String>('');
   const [confirmState, setConfirmState] = useState<Boolean>(false);
 
-  const handleChangeId = (e:React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    setId(e.target.value);
-  }
-
-  const handleChangePwd = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    setPwd(e.target.value);
-  }
+    const { value, name } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value
+    });
+  };
 
   const handleCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setConfirmPwd(e.target.value);
-  }
+  };
 
   const handleSubmit = () => {
-    if (confirmState === true && id != '') {
+    if (confirmState === true && inputs.id != '') {
       // fetch
       navigate('/');
     } else if (confirmState === false) {
       alert('비밀번호를 확인해주세요.');
-    } else if (id === '') {
+    } else if (inputs.id === '') {
       alert('아이디를 입력해주세요');
     } 
-  }
+  };
 
   useEffect(() => {
-    if(pwd === confirmPwd && pwd != '' && confirmPwd != '') {
+    if(inputs.pwd === confirmPwd && inputs.pwd != '' && confirmPwd != '') {
       setPwdMessage('비밀번호가 일치합니다.');
       setConfirmState(true);
     } else if (confirmPwd === ''){
@@ -73,9 +71,9 @@ function SignupPage() {
             borderBottom: '1px solid #E9E9E9',
             mb: 5,
           }} />
-          <TextField sx={{ mb: 3 }} onChange={handleChangeId} id="email" required label="Email Address" variant="outlined" autoFocus/>
-          <TextField onChange={handleChangePwd} sx={{ mb: 3 }} id="password" required label="Password" variant="outlined" type="password"/>
-          <TextField sx={{ mb: 0.5 }}onChange={handleCheck} id="password" required label="Confirm Password " variant="outlined" type="password"/>
+          <TextField sx={{ mb: 3 }} onChange={handleChange} name="id" required label="Email Address" variant="outlined" autoFocus/>
+          <TextField onChange={handleChange} sx={{ mb: 3 }} name="pwd" required label="Password" variant="outlined" type="password"/>
+          <TextField sx={{ mb: 0.5 }}onChange={handleCheck} name="confirmPwd" required label="Confirm Password " variant="outlined" type="password"/>
           <Box sx={{ color: '#666666', fontSize: '0.8rem', mb: 1}}>
             {pwdMessage} &nbsp;
           </Box>
