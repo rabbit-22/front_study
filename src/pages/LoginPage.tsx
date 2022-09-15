@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Button, Container, TextField } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Division from '../components/Division';
 
 /**
@@ -10,6 +10,11 @@ import Division from '../components/Division';
  */
 
 function LoginPage() {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    //fetch
+    navigate('/board');
+  }
   return (
     <Container maxWidth="xs">
       <Box sx={{
@@ -18,7 +23,8 @@ function LoginPage() {
         minHeight: '100vh',
         flexDirection: 'column',
         alginItems: 'center',}}>
-          <Box sx={{
+          <Box
+            sx={{
             display: 'flex',
             justifyContent: 'center',
             fontWeight: 'bold',
@@ -31,7 +37,7 @@ function LoginPage() {
           <Division />
           <TextField sx={{ mb: 3 }} id="email" required label="Email Address" variant="outlined" autoFocus/>
           <TextField id="password" required label="Password" variant="outlined" type="password"/>
-          <Button sx={{mt: 3}} variant="contained">Sign in</Button>
+          <Button  onClick={handleClick} sx={{mt: 3}} variant="contained">Sign in</Button>
           <Link to="/signup">
             <Box sx={{ 
               display: 'flex', 
