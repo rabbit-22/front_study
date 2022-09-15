@@ -1,6 +1,6 @@
 import React from 'react';
 import BoardTable from './BoardTable';
-import { Button, Box } from '@mui/material';
+import { Button, Box, Pagination } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 /**
@@ -12,10 +12,13 @@ function BoardPage() {
   return (
     <>
       <BoardTable />
-      <Box sx={{ display: 'flex', justifyContent: 'end', mt: 3}}>
-        <Link to="/board/write">
-          <Button variant="contained">글쓰기</Button>
-        </Link>
+      <Box sx={{ position: 'relative' }}>
+        <Pagination count={10} sx={{ display: 'flex', justifyContent: 'center', mt: 3}} />
+        <Box sx={{ display: 'flex', justifyContent: 'end', position: 'absolute', right: 0, bottom: 0 }}>
+          <Link to="/board/write">
+            <Button variant="contained">글쓰기</Button>
+          </Link>
+        </Box>
       </Box>
     </>
   );

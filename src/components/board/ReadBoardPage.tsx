@@ -44,13 +44,21 @@ function ReadBoardPage() {
 
   return (
     <>
+    <Box sx={{ border: '1px solid #E9E9E9', p: 3, mt: 20}}>
       <Box sx={{ mb: 2, fontWeight: 'bold', fontSize: '1.3rem' }}>제목</Box>
+      <Box sx={{ borderBottom: '1px solid #E9E9E9', mb: 3}} />
       <Box>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
         Ipsa ut voluptatem animi non repellat iusto consequuntur maxime quo eius! Corporis, 
         amet at rem quos totam deleniti officia voluptatem eaque libero.
+        Ipsa ut voluptatem animi non repellat iusto consequuntur maxime quo eius! Corporis, 
+        amet at rem quos totam deleniti officia voluptatem eaque libero.
+        Ipsa ut voluptatem animi non repellat iusto consequuntur maxime quo eius! Corporis, 
+        amet at rem quos totam deleniti officia voluptatem eaque libero.
+        Ipsa ut voluptatem animi non repellat iusto consequuntur maxime quo eius! Corporis, 
+        amet at rem quos totam deleniti officia voluptatem eaque libero.
       </Box>
-      <Box sx={{ borderBottom: '1px solid #E9E9E9', mt: 3}} />
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 3 }}>
+      </Box>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', my: 3, mb: 5 }}>
         <Link to='/board'>
           <Button sx={{ display: 'flex'}} variant='contained' color='inherit'>목록</Button>
         </Link>

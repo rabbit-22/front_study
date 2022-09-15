@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, Table, TableBody, TableCell, TableContainer, TableRow, TableHead, TablePagination } from '@mui/material';
+import { Paper, Table, TableBody, TableCell, TableContainer, TableRow, TableHead } from '@mui/material';
 import { rows } from './Rows';
 import { Link } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ function BoardTable() {
   return (
     <TableContainer component={Paper}>
       <Table>
-        <TableHead sx={{ backgroundColor: '#d1d1d1'}}>
+        <TableHead sx={{ backgroundColor: '#d9e6ff'}}>
           <TableRow>
             <TableCell sx={{ fontWeight: 'bold' }}>글 제목</TableCell>
             <TableCell align='right' sx={{ fontWeight: 'bold' }}>작성자</TableCell>

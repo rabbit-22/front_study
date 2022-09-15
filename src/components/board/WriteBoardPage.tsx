@@ -32,7 +32,7 @@ function WriteBoardPage() {
   
   return (
     <>
-      <TextField onChange={handleChange} name='title' variant="standard" sx={{ mb: 1 }} autoFocus placeholder='제목을 입력해 주세요'/>
+      <TextField onChange={handleChange} name='title' variant="standard" sx={{ mb: 1, mt: 5 }} autoFocus placeholder='제목을 입력해 주세요'/>
       <TextareaAutosize onChange={handleChange} name='content' minRows={25} maxRows={25} style={{ resize:'none'}}/>
       <Box sx={{ display: 'flex', justifyContent:'space-between', mt: 3 }}>
         <Link to='/board'>
