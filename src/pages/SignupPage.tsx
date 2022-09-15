@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Button, Container, TextField } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
-import Division from '../common/Division';
+import Division from '../components/Division';
 
 /**
  * 회원가입 페이지

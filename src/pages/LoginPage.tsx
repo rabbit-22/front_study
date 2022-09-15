@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button, Container, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
-import Division from '../common/Division';
+import Division from '../components/Division';
 
 /**
  * 로그인 페이지

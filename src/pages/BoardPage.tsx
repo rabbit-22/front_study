@@ -1,5 +1,5 @@
 import React from 'react';
-import BoardTable from './BoardTable';
+import BoardTable from '../components/BoardTable';
 import { Button, Box, Pagination } from '@mui/material';
 import { Link } from 'react-router-dom';
 

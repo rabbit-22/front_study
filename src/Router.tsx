@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import WriteBoardPage from './components/board/WriteBoardPage';
-import BoardPage from './components/board/BoardPage';
-import ScrollToTop from './components/common/ScrollToTop';
-import LoginPage from './components/login/LoginPage';
-import SignupPage from './components/signup/SignupPage';
-import ReadBoardPage from './components/board/ReadBoardPage';
-import Header from './components/common/Header';
+import WriteBoardPage from './pages/WriteBoardPage';
+import BoardPage from './pages/BoardPage';
+import ScrollToTop from './components/ScrollToTop';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
+import ReadBoardPage from './pages/ReadBoardPage';
+import Header from './components/Header';
 import { Box, Container } from '@mui/material';
 
 function Router() {
