@@ -1,27 +1,24 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import BoardTable from './BoardTable';
 import { Button, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-interface BoardProps {}
-interface BoardState {}
+/**
+ * 게시판 페이지
+ * 게시판 테이블, 글쓰기 버튼
+ */
 
-class BoardPage extends PureComponent<BoardProps, BoardState> {
-  constructor(props: BoardProps) {
-      super(props);
-    }
-  render() {
-    return (
-      <Box sx={{ m: 3}}>
-        <BoardTable />
-        <Box sx={{ display: 'flex', justifyContent: 'end', mt: 3}}>
-          <Link to="/">
-            <Button variant="contained">글쓰기</Button>
-          </Link>
-        </Box>
+function BoardPage() {
+  return (
+    <>
+      <BoardTable />
+      <Box sx={{ display: 'flex', justifyContent: 'end', mt: 3}}>
+        <Link to="/board/write">
+          <Button variant="contained">글쓰기</Button>
+        </Link>
       </Box>
-    );
-  }
+    </>
+  );
 }
 
 export default BoardPage;

@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Button, Container, TextField } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
+import Division from '../common/Division';
+
+/**
+ * 회원가입 페이지
+ * 이메일, 비밀번호, 비밀번호 확인 입력창
+ * 회원가입 버튼, 로그인 버튼
+ */
 
 function SignupPage() {
   const navigate = useNavigate();
@@ -65,12 +72,7 @@ function SignupPage() {
             }}>
               회원가입
           </Box>
-          <Box sx={{
-            margin: '0 auto',
-            width: '20rem',
-            borderBottom: '1px solid #E9E9E9',
-            mb: 5,
-          }} />
+          <Division />
           <TextField sx={{ mb: 3 }} onChange={handleChange} name="id" required label="Email Address" variant="outlined" autoFocus/>
           <TextField onChange={handleChange} sx={{ mb: 3 }} name="pwd" required label="Password" variant="outlined" type="password"/>
           <TextField sx={{ mb: 0.5 }}onChange={handleCheck} name="confirmPwd" required label="Confirm Password " variant="outlined" type="password"/>

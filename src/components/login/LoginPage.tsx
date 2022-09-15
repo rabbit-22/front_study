@@ -1,6 +1,13 @@
 import React from 'react';
 import { Box, Button, Container, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
+import Division from '../common/Division';
+
+/**
+ * 로그인 페이지
+ * 이메일, 비밀번호 입력창 
+ * 로그인 버튼, 회원가입 버튼
+ */
 
 function LoginPage() {
   return (
@@ -21,12 +28,7 @@ function LoginPage() {
             }}>
             로그인
           </Box>
-          <Box sx={{
-            margin: '0 auto',
-            width: '20rem',
-            borderBottom: '1px solid #E9E9E9',
-            mb: 5,
-          }} />
+          <Division />
           <TextField sx={{ mb: 3 }} id="email" required label="Email Address" variant="outlined" autoFocus/>
           <TextField id="password" required label="Password" variant="outlined" type="password"/>
           <Button sx={{mt: 3}} variant="contained">Sign in</Button>
