@@ -2,11 +2,11 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import WriteBoardPage from './pages/WriteBoardPage';
 import BoardPage from './pages/BoardPage';
-import ScrollToTop from './components/ScrollToTop';
+import ScrollToTop from './components/common/ScrollToTop';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import ReadBoardPage from './pages/ReadBoardPage';
-import Header from './components/Header';
+import Header from './components/common/Header';
 import { Box, Container } from '@mui/material';
 
 function Router() {

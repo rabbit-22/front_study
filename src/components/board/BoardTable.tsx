@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Paper, Table, TableBody, TableCell, TableContainer, TableRow, TableHead } from '@mui/material';
-import { rows } from './Rows';
+import { rows } from '../Rows';
 import { Link } from 'react-router-dom';
 
 /**

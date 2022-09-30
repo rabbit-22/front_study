@@ -1,5 +1,5 @@
 import React from 'react';
-import BoardTable from '../components/BoardTable';
+import BoardTable from '../components/board/BoardTable';
 import { Button, Box, Pagination } from '@mui/material';
 import { Link } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 function BoardPage() {
   return (
-    <>
+    <React.Fragment>
       <BoardTable />
       <Box sx={{ position: 'relative' }}>
         <Pagination count={10} sx={{ display: 'flex', justifyContent: 'center', mt: 3}} />
@@ -20,7 +20,7 @@ function BoardPage() {
           </Link>
         </Box>
       </Box>
-    </>
+    </React.Fragment>
   );
 }
 

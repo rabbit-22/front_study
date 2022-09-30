@@ -43,7 +43,7 @@ function ReadBoardPage() {
   }, []);
 
   return (
-    <>
+    <React.Fragment>
     <Box sx={{ border: '1px solid #E9E9E9', p: 3, mt: 15}}>
       <Box sx={{ mb: 2, fontWeight: 'bold', fontSize: '1.3rem' }}>제목</Box>
       <Box sx={{ borderBottom: '1px solid #E9E9E9', mb: 3}} />
@@ -89,7 +89,7 @@ function ReadBoardPage() {
           </Button>
         </DialogActions>
       </Dialog>
-    </>
+    </React.Fragment>
   );
 };
 

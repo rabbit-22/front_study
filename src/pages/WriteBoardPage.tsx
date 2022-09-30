@@ -31,7 +31,7 @@ function WriteBoardPage() {
   };
   
   return (
-    <>
+    <React.Fragment>
       <TextField onChange={handleChange} name='title' variant="standard" sx={{ mb: 1, mt: 5 }} autoFocus placeholder='제목을 입력해 주세요'/>
       <TextareaAutosize onChange={handleChange} name='content' minRows={25} maxRows={25} style={{ resize:'none'}}/>
       <Box sx={{ display: 'flex', justifyContent:'space-between', mt: 3 }}>
@@ -40,7 +40,7 @@ function WriteBoardPage() {
         </Link>
         <Button onClick={handleClick} variant='contained'>등록</Button>
       </Box>
-    </>
+    </React.Fragment>
   );
 }
 
