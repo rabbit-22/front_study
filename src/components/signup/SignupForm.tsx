@@ -13,7 +13,7 @@ import InputTitle from '../common/InputTitle';
 
 function SignupForm() {
   const navigate = useNavigate();
-  const [inputs, setInputs] = useState({id: '', pwd: ''})
+  const [inputs, setInputs] = useState({id: '', password: ''})
   const [confirmPwd, setConfirmPwd] = useState<String>('');
   const [pwdMessage, setPwdMessage] = useState<String>('');
   const [confirmState, setConfirmState] = useState<Boolean>(false);
@@ -34,8 +34,7 @@ function SignupForm() {
 
   const handleSubmit = () => {
     if (confirmState === true && inputs.id != '') {
-      // fetch
-      navigate('/');
+      signup();
     } else if (confirmState === false) {
       alert('비밀번호를 확인해주세요.');
     } else if (inputs.id === '') {
@@ -43,8 +42,26 @@ function SignupForm() {
     } 
   };
 
+  const signup = () => {
+    fetch('http://localhost:8000/users/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        'id': inputs.id,
+        'password': inputs.password
+      })
+    })
+    .then(response => response.json())
+    .then(response => {
+      navigate('/');
+    }) 
+    .catch(err => console.log(err));
+  };
+
   useEffect(() => {
-    if(inputs.pwd === confirmPwd && inputs.pwd != '' && confirmPwd != '') {
+    if(inputs.password === confirmPwd && inputs.password != '' && confirmPwd != '') {
       setPwdMessage('비밀번호가 일치합니다.');
       setConfirmState(true);
     } else if (confirmPwd === ''){
@@ -67,7 +84,7 @@ function SignupForm() {
           <InputTitle title='회원가입' />
           <Division />
           <TextField sx={{ mb: 3 }} onChange={handleChange} name="id" required label="Email Address" variant="outlined" autoFocus/>
-          <TextField onChange={handleChange} sx={{ mb: 3 }} name="pwd" required label="Password" variant="outlined" type="password"/>
+          <TextField onChange={handleChange} sx={{ mb: 3 }} name="password" required label="Password" variant="outlined" type="password"/>
           <TextField sx={{ mb: 0.5 }}onChange={handleCheck} name="confirmPwd" required label="Confirm Password " variant="outlined" type="password"/>
           <Box sx={{ color: '#666666', fontSize: '0.8rem', mb: 1}}>
             {pwdMessage} &nbsp;
