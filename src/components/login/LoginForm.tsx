@@ -28,11 +28,13 @@ function LoginForm() {
     fetch('http://localhost:8000/users/login', {
       method: 'POST',
       headers: {
-          'Content-Type': 'application/json',
+        'Content-Type': 'application/json',
       },
+      credentials: 'include',
+      mode: 'cors',
       body: JSON.stringify({
-        "id": id,
-        "password": pwd
+        'id': id,
+        'password': pwd
       })
     })
     .then(response => response.json())
@@ -42,7 +44,6 @@ function LoginForm() {
       } else {
         alert('아이디와 비밀번호를 다시 확인해주세요');
       }
-  
     })
   }
   return (
