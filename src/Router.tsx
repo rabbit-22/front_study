@@ -8,6 +8,7 @@ import SignupPage from './pages/SignupPage';
 import ReadBoardPage from './pages/ReadBoardPage';
 import Header from './components/common/Header';
 import { Box, Container } from '@mui/material';
+import UpdateBoardPage from './pages/UpdateBoardPage';
 
 function Router() {
   return (
@@ -21,6 +22,7 @@ function Router() {
               <Route path="/signup" element={<SignupPage />} />
               <Route path="/board" element={<BoardPage />} />
               <Route path="/board/write" element={<WriteBoardPage />} />
+              <Route path="/board/update" element={<UpdateBoardPage />} />
               <Route path="/board/:id" element={<ReadBoardPage />} />
           </Routes>
         </Box>

@@ -9,6 +9,10 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
  */
 
 interface Data {
+  id: number;
+  createdAt: string;
+  updatedAt: string;
+  writer: string;
   title: string;
   content: string;
 }
@@ -24,8 +28,9 @@ function ReadBoardPage() {
   };
 
   const handleClickModify = () => {
-    // api 연동 후 props 전달
-    navigate('/board/write');
+    navigate('/board/update', { state: 
+      { content: data? data.content: null,
+        title: data? data.title : null } });
   };
 
   const handleOpen = () => {
@@ -34,29 +39,30 @@ function ReadBoardPage() {
 
   const handleClickDelete = () => {
     setOpen(false);
-    // fetch delete
+    fetch(`http://localhost:8000/boards/${id}`, {
+      method: 'DELETE'
+    })
+  .then(()=> {
     navigate('/board');
+  })
+  .catch(err => console.log(err));
   };
 
   useEffect(() => {
-    //fetch get
+    fetch(`http://localhost:8000/boards/${id}`)
+    .then(res => res.json())
+    .then(data => {
+        setData(data);
+    }).catch(err => console.log(err));
   }, []);
 
   return (
     <React.Fragment>
     <Box sx={{ border: '1px solid #E9E9E9', p: 3, mt: 15}}>
-      <Box sx={{ mb: 2, fontWeight: 'bold', fontSize: '1.3rem' }}>제목</Box>
+      <Box sx={{ mb: 2, fontWeight: 'bold', fontSize: '1.3rem' }}>{data ? data.title : null}</Box>
       <Box sx={{ borderBottom: '1px solid #E9E9E9', mb: 3}} />
-      <Box>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-        Ipsa ut voluptatem animi non repellat iusto consequuntur maxime quo eius! Corporis, 
-        amet at rem quos totam deleniti officia voluptatem eaque libero.
-        Ipsa ut voluptatem animi non repellat iusto consequuntur maxime quo eius! Corporis, 
-        amet at rem quos totam deleniti officia voluptatem eaque libero.
-        Ipsa ut voluptatem animi non repellat iusto consequuntur maxime quo eius! Corporis, 
-        amet at rem quos totam deleniti officia voluptatem eaque libero.
-        Ipsa ut voluptatem animi non repellat iusto consequuntur maxime quo eius! Corporis, 
-        amet at rem quos totam deleniti officia voluptatem eaque libero.
-        Ipsa ut voluptatem animi non repellat iusto consequuntur maxime quo eius! Corporis, 
+      <Box>
+        {data ? data.content : null}
       </Box>
       </Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', my: 3, mb: 5 }}>
